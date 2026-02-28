@@ -1,4 +1,3 @@
-import { Spec } from '../core/Spec.js';
 import { SpecRegistry } from '../core/SpecRegistry.js';
 import type { ComplianceReport, Requirement } from '../core/types.js';
 

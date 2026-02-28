@@ -1,5 +1,5 @@
 import { Spec } from './Spec.js';
-import type { SpecDefinition, ComplianceReport, Requirement } from './types.js';
+import type { SpecDefinition, ComplianceReport } from './types.js';
 
 export class SpecRegistry {
   private specs: Map<string, Spec> = new Map();

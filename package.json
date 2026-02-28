@@ -1,5 +1,5 @@
 {
-  "name": "lumisdk",
+  "name": "@xflofoxx/lumisdk",
   "version": "1.0.0",
   "description": "Lightweight Spec Driven Development framework for modern software engineering",
   "main": "dist/index.js",
@@ -8,25 +8,25 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./core": {
-      "import": "./dist/core/index.mjs",
-      "types": "./dist/core/index.d.ts"
+      "types": "./dist/core/index.d.ts",
+      "import": "./dist/core/index.mjs"
     },
     "./validators": {
-      "import": "./dist/validators/index.mjs",
-      "types": "./dist/validators/index.d.ts"
+      "types": "./dist/validators/index.d.ts",
+      "import": "./dist/validators/index.mjs"
     },
     "./generators": {
-      "import": "./dist/generators/index.mjs",
-      "types": "./dist/generators/index.d.ts"
+      "types": "./dist/generators/index.d.ts",
+      "import": "./dist/generators/index.mjs"
     },
     "./trackers": {
-      "import": "./dist/trackers/index.mjs",
-      "types": "./dist/trackers/index.d.ts"
+      "types": "./dist/trackers/index.d.ts",
+      "import": "./dist/trackers/index.mjs"
     }
   },
   "scripts": {
