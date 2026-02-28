@@ -4,13 +4,6 @@ import type { ValidationResult, ValidationWarning } from '../core/types.js';
 export class OpenApiValidator extends SpecValidator {
   constructor() {
     super();
-    this.setupOpenApiKeywords();
-  }
-
-  private setupOpenApiKeywords(): void {
-    this.ajv.addKeyword('example', {
-      validate: () => true,
-    });
   }
 
   validateOpenApi(data: unknown, version: '2.0' | '3.0' | '3.1' = '3.0'): ValidationResult {
@@ -136,12 +129,14 @@ export class OpenApiValidator extends SpecValidator {
     const doc = data as Record<string, unknown>;
     const schemas: Record<string, object> = {};
 
-    if (doc.components?.schemas) {
-      Object.assign(schemas, doc.components.schemas as Record<string, object>);
+    const components = doc.components as { schemas?: Record<string, object> } | undefined;
+    if (components?.schemas) {
+      Object.assign(schemas, components.schemas);
     }
 
-    if (doc.definitions) {
-      Object.assign(schemas, doc.definitions as Record<string, object>);
+    const definitions = doc.definitions as Record<string, object> | undefined;
+    if (definitions) {
+      Object.assign(schemas, definitions);
     }
 
     return schemas;

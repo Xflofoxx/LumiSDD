@@ -1,4 +1,4 @@
-import Ajv from 'ajv';
+import Ajv, { type KeywordDefinition } from 'ajv';
 import addFormats from 'ajv-formats';
 import type { ValidationResult, ValidationError, ValidationWarning } from '../core/types.js';
 
@@ -31,7 +31,7 @@ export class SpecValidator {
     return { valid, errors, warnings };
   }
 
-  addKeyword(keyword: string, definition: object): void {
+  addKeyword(keyword: string, definition: KeywordDefinition): void {
     this.ajv.addKeyword(keyword, definition);
   }
 

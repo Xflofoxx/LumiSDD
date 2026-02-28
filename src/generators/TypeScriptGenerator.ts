@@ -5,7 +5,7 @@ import { Spec } from '../core/Spec.js';
 export class TypeScriptGenerator extends CodeGenerator {
   language = 'typescript';
 
-  generate(spec: Spec, options?: GeneratorOptions): GeneratedCode {
+  generate(spec: Spec, _options?: GeneratorOptions): GeneratedCode {
     const interfaces = this.generateInterfaces(spec);
     const types = this.generateTypes(spec);
     const enums = this.generateEnums(spec);
@@ -120,7 +120,7 @@ export * from './validators';
     }
     if (schema.type === 'object') return 'Record<string, unknown>';
     if (schema.$ref) return this.extractRefName(schema.$ref as string);
-    if (schema.enum) return schema.enum.map((v: unknown) => `'${v}'`).join(' | ');
+    if (schema.enum) return (schema.enum as unknown[]).map((v: unknown) => `'${v}'`).join(' | ');
     return 'unknown';
   }
 

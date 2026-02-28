@@ -5,7 +5,7 @@ import { Spec } from '../core/Spec.js';
 export class MarkdownGenerator extends CodeGenerator {
   language = 'markdown';
 
-  generate(spec: Spec, options?: GeneratorOptions): GeneratedCode {
+  generate(spec: Spec, _options?: GeneratorOptions): GeneratedCode {
     const sections: string[] = [];
 
     sections.push(this.generateHeader(spec));
