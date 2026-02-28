@@ -32,6 +32,71 @@ LumiSDD is a lightweight Spec Driven Development (SDD) framework designed for mo
 4. **Trackers** (`src/trackers/`)
    - `ComplianceTracker` - Track requirement compliance over time
 
+5. **PM² Integration** (`src/pm2/`)
+   - `PM2Workflow` - PM² methodology workflow implementation
+   - Types for PM² phases, roles, and deliverables
+
+## PM² Project Management Integration
+
+This project uses the **PM² Methodology** (European Commission) for project management. When working on this project, follow PM² principles:
+
+### PM² Phases
+
+1. **Initiating** - Define project charter, stakeholders, risks
+2. **Planning** - Create handbook, work plan, schedule, budget
+3. **Executing** - Implement deliverables, monitor progress
+4. **Closing** - Deliver final outputs, document lessons learned
+
+### PM² Roles
+
+- **Project Owner (PO)** - Ultimate accountability
+- **Business Manager (BM)** - Business side representative
+- **Solution Provider (SP)** - Technical delivery
+- **Project Manager (PM)** - Day-to-day management
+- **Project Core Team (PCT)** - Deliver work
+
+### Agent Behavior (PM² Mode)
+
+When implementing features or fixing bugs, follow this workflow:
+
+1. **Initiating Phase**
+   - Create/update SPEC.md with clear requirements
+   - Identify stakeholders and their interests
+   - Document initial risks
+
+2. **Planning Phase**
+   - Break down into work packages and tasks
+   - Create/update TODO list
+   - Define acceptance criteria for each requirement
+
+3. **Executing Phase**
+   - Implement code following specifications
+   - Write tests for new functionality
+   - Update documentation
+
+4. **Closing Phase**
+   - Run full test suite
+   - Update CHANGELOG.md
+   - Create release tag (semver)
+   - Update GitHub milestones
+
+### GitHub Integration
+
+Automatically maintain:
+
+- **Issues** - For each requirement/task
+- **Milestones** - For releases (v1.0.0, v1.1.0, etc.)
+- **Tags** - Using semver (v{major}.{minor}.{patch})
+- **Commits** - Conventional commits: `feat(core): add new feature`
+
+### Spec Files
+
+Maintain SPEC.md with:
+- Clear feature description
+- Requirements linked to GitHub issues
+- Acceptance criteria
+- Dependencies and blockers
+
 ## Development Guidelines
 
 ### TypeScript Standards
@@ -74,4 +139,23 @@ npm run test:watch # Watch mode
 ```bash
 npm run build      # Build for production
 npm run dev        # Development with watch
+```
+
+### PM² Workflow
+```typescript
+import { PM2Workflow } from 'lumisdk/pm2';
+
+const workflow = PM2Workflow.create('LUMISD-001', 'LumiSDD');
+
+workflow.createCharter({
+  title: 'LumiSDD v2.0',
+  description: 'Add PM² support',
+  objectives: ['Implement PM² workflow', 'Add GitHub automation'],
+  stakeholders: [{ id: '1', name: 'Xflofoxx', role: 'project_owner', organization: 'LumiSDD' }],
+  startDate: '2026-03-01',
+  endDate: '2026-06-30',
+});
+
+workflow.setPhase('planning');
+const spec = workflow.getSpec();
 ```
