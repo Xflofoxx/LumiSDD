@@ -1,0 +1,80 @@
+# Hello Spec - Example Specification
+# This is a sample specification demonstrating LumiSDD usage
+# Version: 1.0.0
+# Author: LumiSDD Team
+# Date: 2026-02-28
+
+spec:
+  id: HELLO-001
+  name: HelloSpec
+  version: 1.0.0
+  description: A simple Hello World specification example
+
+# JSON Schema for the data model
+schema:
+  type: object
+  properties:
+    message:
+      type: string
+      description: The greeting message
+      minLength: 1
+      maxLength: 100
+    language:
+      type: string
+      description: Language code (en, it, es, fr, de)
+      enum: [en, it, es, fr, de]
+      default: en
+    timestamp:
+      type: string
+      format: date-time
+      description: When the greeting was created
+  required:
+    - message
+    - language
+
+# Requirements linked to this spec
+requirements:
+  - id: REQ-HELLO-001
+    description: Display a greeting message in the selected language
+    priority: high
+    status: completed
+    acceptanceCriteria:
+      - Message is displayed correctly
+      - Language selection works
+
+  - id: REQ-HELLO-002
+    description: Support multiple languages (en, it, es, fr, de)
+    priority: medium
+    status: completed
+    acceptanceCriteria:
+      - At least 5 languages supported
+
+  - id: REQ-HELLO-003
+    description: Add timestamp to greeting
+    priority: low
+    status: pending
+    acceptanceCriteria:
+      - Timestamp is accurate to the second
+
+# Constraints
+constraints:
+  - id: CON-HELLO-001
+    type: performance
+    description: Greeting must be generated within 100ms
+    expression: "generationTime <= 100"
+    severity: warning
+
+  - id: CON-HELLO-002
+    type: technical
+    description: Message length must not exceed 100 characters
+    expression: "message.length <= 100"
+    severity: critical
+
+# Metadata
+metadata:
+  author: LumiSDD Team
+  created: 2026-02-28
+  tags:
+    - example
+    - hello-world
+    - tutorial
