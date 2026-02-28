@@ -1,11 +1,14 @@
 # LumiSDD
 
 [![CI](https://github.com/Xflofoxx/LumiSDD/actions/workflows/ci.yml/badge.svg)](https://github.com/Xflofoxx/LumiSDD/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/lumisdk)](https://www.npmjs.com/package/lumisdk)
+[![npm version](https://img.shields.io/npm/v/@xflofoxx/lumisdk)](https://www.npmjs.com/package/@xflofoxx/lumisdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7+-3178c6.svg)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
+[![Coverage](https://img.shields.io/badge/Coverment-75%25-yellow.svg)](#)
+[![PM2](https://img.shields.io/badge/PM2-Compliant-purple.svg)](#)
 
-Lightweight Spec Driven Development framework for modern software engineering. Inspired by OpenSpec and designed for type-safe specification management.
+Lightweight Spec Driven Development framework for modern software engineering with integrated PM² methodology support.
 
 ## Philosophy
 
@@ -23,18 +26,21 @@ Lightweight Spec Driven Development framework for modern software engineering. I
 - **Schema Validation** - Built-in support for JSON Schema and OpenAPI
 - **Code Generation** - Generate TypeScript types and documentation from specs
 - **Compliance Tracking** - Track requirement compliance over time
+- **PM² Integration** - Full PM² methodology workflow support
 - **Type-safe** - Full TypeScript support with strict typing
-
-## Installation
-
-```bash
-npm install lumisdk
-```
 
 ## Quick Start
 
+### Installation
+
+```bash
+npm install @xflofoxx/lumisdk
+```
+
+### Basic Usage
+
 ```typescript
-import { Spec, SpecRegistry, TypeScriptGenerator, MarkdownGenerator, JsonSchemaValidator, ComplianceTracker } from 'lumisdk';
+import { Spec, SpecRegistry, TypeScriptGenerator, MarkdownGenerator, JsonSchemaValidator, ComplianceTracker } from '@xflofoxx/lumisdk';
 
 const spec = Spec.create({
   name: 'UserService',
@@ -78,6 +84,30 @@ const tracker = new ComplianceTracker(registry);
 tracker.trackChange(spec.id, 'req-001', 'verified');
 console.log(tracker.generateReport(spec.id).compliancePercentage);
 ```
+
+## PM² Methodology
+
+This project follows the **PM² Project Management Methodology** developed by the European Commission. See [docs/pm2/](docs/pm2/) for templates and documentation.
+
+### PM² Resources
+
+- [Project Initiation Canvas](docs/pm2/Project-Initiation-Canvas.md)
+- [RAID Log](docs/pm2/RAID.md)
+- [Traceability Matrix](tools/traceability/traceability-matrix.md)
+- [PM² Guide PDF](docs/pm2/PM2-Project-Management-Guide-v3.1.pdf)
+
+## Documentation
+
+- [Getting Started](docs/getting-started.md)
+- [Contributing Guide](CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Security Policy](SECURITY.md)
+
+## Examples
+
+See the [examples/](examples/) directory for working examples:
+
+- [Hello Spec](examples/hello-spec/) - Basic spec usage
 
 ## Detailed Examples
 
@@ -347,20 +377,20 @@ if (!result.valid) {
 # Install dependencies
 npm install
 
-# Build
-npm run build
-
 # Run tests
 npm test
 
-# Watch mode
-npm run test:watch
+# Run typecheck
+npm run typecheck
 
-# Lint
+# Run lint
 npm run lint
 
-# Typecheck
-npm run typecheck
+# Build
+npm run build
+
+# Run examples
+cd examples/hello-spec && ./generate.sh
 ```
 
 ## Architecture
@@ -379,8 +409,11 @@ src/
 │   ├── CodeGenerator.ts
 │   ├── TypeScriptGenerator.ts
 │   └── MarkdownGenerator.ts
-└── trackers/      # Compliance tracking
-    └── ComplianceTracker.ts
+├── trackers/      # Compliance tracking
+│   └── ComplianceTracker.ts
+└── pm2/          # PM² methodology
+    ├── PM2Workflow.ts
+    └── types.ts
 ```
 
 ## License
