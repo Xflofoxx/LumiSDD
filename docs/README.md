@@ -1,7 +1,7 @@
 # LumiSDD
 
 [![CI](https://github.com/Xflofoxx/LumiSDD/actions/workflows/ci.yml/badge.svg)](https://github.com/Xflofoxx/LumiSDD/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/lumisdk)](https://www.npmjs.com/package/lumisdk)
+[![npm version](https://img.shields.io/npm/v/@xflofoxx/LumiSDD)](https://www.npmjs.com/package/@xflofoxx/LumiSDD)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7+-3178c6.svg)](https://www.typescriptlang.org/)
 

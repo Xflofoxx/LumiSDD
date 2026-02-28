@@ -1,7 +1,7 @@
 # LumiSDD - Spec Driven Development Framework
 
 [![CI](https://github.com/Xflofoxx/LumiSDD/actions/workflows/ci.yml/badge.svg)](https://github.com/Xflofoxx/LumiSDD/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/@xflofoxx/lumisdk)](https://www.npmjs.com/package/@xflofoxx/lumisdk)
+[![npm version](https://img.shields.io/npm/v/@xflofoxx/LumiSDD)](https://www.npmjs.com/package/@xflofoxx/LumiSDD)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7+-3178c6.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
@@ -69,13 +69,13 @@ Spec-Driven Development (SDD) is an approach where specifications are treated as
 ### Installation
 
 ```bash
-npm install @xflofoxx/lumisdk
+npm install @xflofoxx/LumiSDD
 ```
 
 ### Basic Usage
 
 ```typescript
-import { Spec, SpecRegistry, TypeScriptGenerator, JsonSchemaValidator, ComplianceTracker } from '@xflofoxx/lumisdk';
+import { Spec, SpecRegistry, TypeScriptGenerator, JsonSchemaValidator, ComplianceTracker } from '@xflofoxx/LumiSDD';
 
 // 1. Create a specification
 const spec = Spec.create({

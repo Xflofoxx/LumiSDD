@@ -143,7 +143,7 @@ npm run dev        # Development with watch
 
 ### PM² Workflow
 ```typescript
-import { PM2Workflow } from 'lumisdk/pm2';
+import { PM2Workflow } from 'LumiSDD/pm2';
 
 const workflow = PM2Workflow.create('LUMISD-001', 'LumiSDD');
 
