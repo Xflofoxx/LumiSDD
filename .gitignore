@@ -5,6 +5,7 @@ build/
 .DS_Store
 .env
 .env.local
+.env.*
 coverage/
 .vscode/
 .idea/
@@ -12,3 +13,4 @@ coverage/
 .cache/
 tmp/
 temp/
+.npmrc
