@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-npm install lumisdk
+npm install @xflofoxx/LumiSDD
 ```
 
 ## Basic Usage
@@ -11,7 +11,7 @@ npm install lumisdk
 ### Creating a Specification
 
 ```typescript
-import { Spec } from 'lumisdk';
+import { Spec } from 'LumiSDD';
 
 const spec = Spec.create({
   name: 'MyAPI',
@@ -46,7 +46,7 @@ spec.addRequirement({
 ### Validating Data
 
 ```typescript
-import { JsonSchemaValidator } from 'lumisdk';
+import { JsonSchemaValidator } from 'LumiSDD';
 
 const validator = new JsonSchemaValidator();
 const result = validator.validateJsonSchema(data, spec.schema!);
@@ -59,7 +59,7 @@ if (!result.valid) {
 ### Generating Code
 
 ```typescript
-import { TypeScriptGenerator } from 'lumisdk';
+import { TypeScriptGenerator } from 'LumiSDD';
 
 const generator = new TypeScriptGenerator();
 const code = generator.generate(spec);
@@ -69,7 +69,7 @@ console.log(code.code);
 ### Tracking Compliance
 
 ```typescript
-import { SpecRegistry, ComplianceTracker } from 'lumisdk';
+import { SpecRegistry, ComplianceTracker } from 'LumiSDD';
 
 const registry = new SpecRegistry();
 registry.register(spec);

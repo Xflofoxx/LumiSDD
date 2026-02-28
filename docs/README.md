@@ -28,13 +28,13 @@ Lightweight Spec Driven Development framework for modern software engineering.
 ## Installation
 
 ```bash
-npm install lumisdk
+npm install @xflofoxx/LumiSDD
 ```
 
 ## Quick Start
 
 ```typescript
-import { Spec, SpecRegistry, TypeScriptGenerator, MarkdownGenerator, JsonSchemaValidator, ComplianceTracker } from 'lumisdk';
+import { Spec, SpecRegistry, TypeScriptGenerator, MarkdownGenerator, JsonSchemaValidator, ComplianceTracker } from 'LumiSDD';
 
 // Create a spec
 const spec = Spec.create({
