@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumiSDD - Spec Driven Development Framework</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            font-size: 3em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #f0f0f0;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .badge-version {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .badge-license {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+        
+        .badge-typescript {
+            background: #3178c6;
+            color: white;
+        }
+        
+        .section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+        
+        code {
+            font-family: 'Fira Code', 'Consolas', monospace;
+        }
+        
+        .install {
+            background: #1e1e1e;
+            color: #4ec9b0;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            margin: 20px 0;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature h3 {
+            font-size: 1em;
+            margin-bottom: 5px;
+            color: #667eea;
+        }
+        
+        .feature p {
+            font-size: 0.85em;
+            color: #666;
+        }
+        
+        .links {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .links a {
+            color: #667eea;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        
+        .links a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>LumiSDD</h1>
+            <p class="subtitle">Lightweight Spec Driven Development Framework</p>
+            
+            <div>
+                <span class="badge badge-version">v1.0.0</span>
+                <span class="badge badge-license">MIT License</span>
+                <span class="badge badge-typescript">TypeScript</span>
+            </div>
+            
+            <div class="section">
+                <h2>Install</h2>
+                <div class="install">npm install lumisdk</div>
+            </div>
+            
+            <div class="section">
+                <h2>Features</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Spec Management</h3>
+                        <p>Define specifications with requirements and constraints</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Schema Validation</h3>
+                        <p>JSON Schema and OpenAPI support built-in</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Code Generation</h3>
+                        <p>Generate TypeScript types and documentation</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Compliance Tracking</h3>
+                        <p>Track requirement compliance over time</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Quick Start</h2>
+                <pre><code>import { Spec, TypeScriptGenerator, JsonSchemaValidator } from 'lumisdk';
+
+const spec = Spec.create({
+  name: 'UserService',
+  version: '1.0.0',
+  description: 'User management service',
+  schema: {
+    type: 'object',
+    properties: {
+      id: { type: 'string' },
+      name: { type: 'string' },
+      email: { type: 'string', format: 'email' }
+    },
+    required: ['id', 'name', 'email']
+  },
+  requirements: [{
+    id: 'req-001',
+    description: 'User creation',
+    priority: 'high',
+    status: 'completed',
+    testable: true
+  }]
+});
+
+const generator = new TypeScriptGenerator();
+console.log(generator.generate(spec).code);</code></pre>
+            </div>
+            
+            <div class="links">
+                <a href="https://github.com/Xflofoxx/LumiSDD">GitHub</a>
+                <a href="https://www.npmjs.com/package/lumisdk">npm</a>
+                <a href="docs/getting-started.html">Documentation</a>
+            </div>
+            
+            <footer>
+                <p>Created by Xflofoxx | MIT License</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
