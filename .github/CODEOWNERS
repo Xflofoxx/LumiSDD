@@ -1,0 +1,46 @@
+# Code Owners
+# Author: Xflofoxx
+# Date: 2026-03-01
+# License: MIT
+
+# Default owners for everything in the repo
+* @Xflofoxx
+
+# Core library
+src/core/ @Xflofoxx
+src/index.ts @Xflofoxx
+
+# Validators
+src/validators/ @Xflofoxx
+
+# Generators
+src/generators/ @Xflofoxx
+
+# Trackers
+src/trackers/ @Xflofoxx
+
+# PM2 Integration
+src/pm2/ @Xflofoxx
+
+# Documentation
+docs/ @Xflofoxx
+README.md @Xflofoxx
+CONTRIBUTING.md @Xflofoxx
+CODE_OF_CONDUCT.md @Xflofoxx
+SECURITY.md @Xflofoxx
+CHANGELOG.md @Xflofoxx
+
+# CI/CD
+.github/workflows/ @Xflofoxx
+
+# Examples
+examples/ @Xflofoxx
+
+# Build configuration
+package.json @Xflofoxx
+tsconfig.json @Xflofoxx
+tsup.config.ts @Xflofoxx
+vitest.config.ts @Xflofoxx
+
+# CODEOWNERS file itself
+.github/CODEOWNERS @Xflofoxx
