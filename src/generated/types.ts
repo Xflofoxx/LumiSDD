@@ -61,6 +61,7 @@ export interface UserListParams {
   order?: 'asc' | 'desc';
   search?: string; // Partial match on username or email
   role?: UserRole;
+  includeInactive?: boolean; // Include inactive users in results
 }
 
 // req: REQ-UC-003
