@@ -10,8 +10,8 @@ import type {
   PM2Risk,
   PM2Stakeholder,
   PM2PhaseGate,
-  DEFAULT_PM2_CONFIG,
 } from './types.js';
+import { DEFAULT_PM2_CONFIG } from './types.js';
 
 export class PM2Workflow {
   private registry: SpecRegistry;
@@ -155,7 +155,7 @@ export class PM2Workflow {
     return this.handbook;
   }
 
-  createWorkPlan(workPackages: PM2WorkPlan['workPackage'], schedule: PM2WorkPlan['schedule']): PM2WorkPlan {
+  createWorkPlan(workPackages: PM2WorkPlan['workPackages'], schedule: PM2WorkPlan['schedule']): PM2WorkPlan {
     this.workPlan = {
       projectId: this.config.projectId,
       version: '1.0.0',

@@ -1,0 +1,72 @@
+spec:
+  id: HELLO-E2E-001
+  name: HelloSpecE2E
+  version: 1.0.0
+  description: End-to-end example specification for LumiSDD framework
+
+schema:
+  type: object
+  properties:
+    message:
+      type: string
+      description: The greeting message
+      minLength: 1
+      maxLength: 100
+    language:
+      type: string
+      description: Language code (en, it, es, fr, de)
+      enum: [en, it, es, fr, de]
+      default: en
+    timestamp:
+      type: string
+      format: date-time
+      description: When the greeting was created
+  required:
+    - message
+    - language
+
+requirements:
+  - id: REQ-E2E-001
+    description: Display a greeting message in the selected language
+    priority: high
+    status: implemented
+    acceptanceCriteria:
+      - Message is displayed correctly
+      - Language selection works
+
+  - id: REQ-E2E-002
+    description: Support multiple languages (en, it, es, fr, de)
+    priority: high
+    status: implemented
+    acceptanceCriteria:
+      - At least 5 languages supported
+      - Language codes follow ISO 639-1
+
+  - id: REQ-E2E-003
+    description: Add timestamp to greeting automatically
+    priority: medium
+    status: implemented
+    acceptanceCriteria:
+      - Timestamp is accurate to the second
+      - Timestamp is in ISO 8601 format
+
+constraints:
+  - id: CON-E2E-001
+    type: performance
+    description: Greeting must be generated within 100ms
+    expression: "generationTime <= 100"
+    severity: warning
+
+  - id: CON-E2E-002
+    type: technical
+    description: Message length must not exceed 100 characters
+    expression: "message.length <= 100"
+    severity: critical
+
+metadata:
+  author: LumiSDD Team
+  created: 2026-03-01
+  tags:
+    - example
+    - e2e
+    - tutorial

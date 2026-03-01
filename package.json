@@ -36,6 +36,7 @@
     "test:watch": "vitest",
     "lint": "eslint src --ext .ts",
     "typecheck": "tsc --noEmit",
+    "example:e2e": "npx tsx examples/e2e-hello/index.ts",
     "prepublishOnly": "npm run build",
     "release": "changeset version && changeset publish"
   },
