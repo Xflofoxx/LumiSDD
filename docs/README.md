@@ -1,4 +1,4 @@
-# LumiSDD
+# LumiSDD Documentation
 
 [![CI](https://github.com/Xflofoxx/LumiSDD/actions/workflows/ci.yml/badge.svg)](https://github.com/Xflofoxx/LumiSDD/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@xflofoxx/LumiSDD)](https://www.npmjs.com/package/@xflofoxx/LumiSDD)
@@ -24,14 +24,39 @@ Lightweight Spec Driven Development framework for modern software engineering.
 - **Code Generation** - Generate TypeScript types and documentation from specs
 - **Compliance Tracking** - Track requirement compliance over time
 - **Type-safe** - Full TypeScript support with strict typing
+- **PM² Integration** - Project management methodology from European Commission
 
-## Installation
+## Examples
 
+Practical examples to help you get started:
+
+| Example | Description | Complexity |
+|---------|-------------|-------------|
+| [Hello Spec](../examples/hello-spec/) | Basic specification example | Beginner |
+| [User CRUD](../examples/user-crud/) | REST API specification | Intermediate |
+| [E2E Workflow](../examples/e2e-hello/) | Full SDD workflow | Advanced |
+
+**Quick Start:**
 ```bash
-npm install @xflofoxx/LumiSDD
+# Clone and setup
+git clone https://github.com/Xflofoxx/LumiSDD.git
+cd LumiSDD
+npm install
+npm run build
+
+# Run E2E example (recommended)
+npm run example:e2e
 ```
 
-## Quick Start
+For a complete overview, see [examples README](../examples/README.md).
+
+## Documentation
+
+- [Getting Started](getting-started.md)
+- [PM² Resources](pm2/)
+- [Quality Plan](Quality-Plan.md)
+
+## Development
 
 ```typescript
 import { Spec, SpecRegistry, TypeScriptGenerator, MarkdownGenerator, JsonSchemaValidator, ComplianceTracker } from 'LumiSDD';
