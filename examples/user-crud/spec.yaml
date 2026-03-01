@@ -1,0 +1,250 @@
+# User CRUD Service Specification
+# This specification defines a complete User management service with CRUD operations
+# Version: 1.0.0
+# Author: LumiSDD Team
+# Date: 2026-03-01
+
+spec:
+  id: USER-CRUD-001
+  name: UserCRUDService
+  version: 1.0.0
+  description: |
+    A RESTful User management service providing Create, Read, Update, Delete operations.
+    This specification demonstrates a real-world API with authentication, validation, and error handling.
+
+# JSON Schema for User entity
+schema:
+  type: object
+  properties:
+    id:
+      type: string
+      description: Unique user identifier (UUID)
+      format: uuid
+    email:
+      type: string
+      description: User email address
+      format: email
+      maxLength: 255
+    username:
+      type: string
+      description: User display name
+      minLength: 3
+      maxLength: 50
+      pattern: "^[a-zA-Z0-9_]+$"
+    firstName:
+      type: string
+      description: User first name
+      maxLength: 100
+    lastName:
+      type: string
+      description: User last name
+      maxLength: 100
+    role:
+      type: string
+      description: User role for authorization
+      enum: [admin, user, guest]
+      default: user
+    isActive:
+      type: boolean
+      description: Whether user account is active
+      default: true
+    createdAt:
+      type: string
+      format: date-time
+      description: Timestamp when user was created
+    updatedAt:
+      type: string
+      format: date-time
+      description: Timestamp when user was last updated
+  required:
+    - email
+    - username
+
+# API Endpoints and their requirements
+requirements:
+  # Create User - REQ-UC-001
+  - id: REQ-UC-001
+    description: Create a new user account
+    priority: high
+    status: pending
+    acceptanceCriteria:
+      - User is created with unique ID
+      - Email is validated and unique
+      - Username is validated and unique
+      - Default role is 'user'
+      - createdAt timestamp is set
+
+  # Get User by ID - REQ-UC-002
+  - id: REQ-UC-002
+    description: Retrieve user by ID
+    priority: high
+    status: pending
+    acceptanceCriteria:
+      - Returns user by valid UUID
+      - Returns 404 for non-existent user
+      - Sensitive fields are masked
+
+  # Get All Users - REQ-UC-003
+  - id: REQ-UC-003
+    description: List all users with pagination
+    priority: high
+    status: pending
+    acceptanceCriteria:
+      - Supports pagination (page, limit)
+      - Supports sorting (sortBy, order)
+      - Returns total count
+      - Default page size is 20
+
+  # Update User - REQ-UC-004
+  - id: REQ-UC-004
+    description: Update existing user
+    priority: high
+    status: pending
+    acceptanceCriteria:
+      - Updates only provided fields
+      - Validates email uniqueness
+      - Validates username uniqueness
+      - updatedAt timestamp is updated
+
+  # Delete User - REQ-UC-005
+  - id: REQ-UC-005
+    description: Soft delete user (deactivate)
+    priority: high
+    status: pending
+    acceptanceCriteria:
+      - Sets isActive to false
+      - Does not permanently delete
+      - Returns 404 for already deleted
+
+  # Permanent Delete - REQ-UC-006
+  - id: REQ-UC-006
+    description: Permanently delete user
+    priority: medium
+    status: pending
+    acceptanceCriteria:
+      - Completely removes user record
+      - Returns 404 for non-existent user
+
+  # Search Users - REQ-UC-007
+  - id: REQ-UC-007
+    description: Search users by criteria
+    priority: medium
+    status: pending
+    acceptanceCriteria:
+      - Search by username (partial match)
+      - Search by email (partial match)
+      - Search by role
+      - Combined search filters
+
+# Constraints
+constraints:
+  - id: CON-UC-001
+    type: performance
+    description: API response time must be under 200ms
+    expression: "responseTime <= 200"
+    severity: warning
+
+  - id: CON-UC-002
+    type: security
+    description: Email must be unique across all users
+    expression: "COUNT(email) WHERE email = :email = 0"
+    severity: critical
+
+  - id: CON-UC-003
+    type: security
+    description: Username must be unique across all users
+    expression: "COUNT(username) WHERE username = :username = 0"
+    severity: critical
+
+  - id: CON-UC-004
+    type: validation
+    description: Email must be valid format
+    expression: "email matches RFC 5322"
+    severity: critical
+
+  - id: CON-UC-005
+    type: validation
+    description: Username must be alphanumeric with underscores
+    expression: "username matches ^[a-zA-Z0-9_]+$"
+    severity: critical
+
+  - id: CON-UC-006
+    type: security
+    description: Password must be hashed, never stored in plain text
+    expression: "passwordHash IS NOT NULL AND password IS NULL"
+    severity: critical
+
+# API Response Schemas
+responses:
+  userCreated:
+    type: object
+    properties:
+      id: string
+      email: string
+      username: string
+      createdAt: string
+
+  userResponse:
+    type: object
+    properties:
+      id: string
+      email: string
+      username: string
+      firstName: string
+      lastName: string
+      role: string
+      isActive: boolean
+      createdAt: string
+      updatedAt: string
+
+  userList:
+    type: object
+    properties:
+      data: array
+      pagination:
+        page: number
+        limit: number
+        total: number
+        totalPages: number
+
+  error:
+    type: object
+    properties:
+      code: string
+      message: string
+      details: object
+
+# OpenAPI info
+openapi:
+  info:
+    title: User CRUD API
+    version: 1.0.0
+    description: User management REST API
+  paths:
+    /users:
+      get:
+        summary: List users
+        operationId: listUsers
+      post:
+        summary: Create user
+        operationId: createUser
+    /users/{id}:
+      get:
+        summary: Get user by ID
+        operationId: getUser
+      put:
+        summary: Update user
+        operationId: updateUser
+      delete:
+        summary: Delete user
+        operationId: deleteUser
+
+# Metadata
+metadata:
+  author: LumiSDD Team
+  created: 2026-03-01
+  tags:
+    - example
+    - user-management
+    - crud
+    - rest-api
