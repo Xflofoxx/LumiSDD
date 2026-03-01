@@ -1,0 +1,49 @@
+# Code Owners
+
+<!--
+  Author: Xflofoxx
+  Date: 2026-03-01
+  License: MIT
+-->
+
+This file defines the project maintainers and their areas of responsibility.
+
+## Default Owners
+
+- @Xflofoxx - Core maintainer
+
+## Area Owners
+
+### Core Library
+- @Xflofoxx - `src/core/`, `src/index.ts`
+
+### Validators
+- @Xflofoxx - `src/validators/`
+
+### Generators
+- @Xflofoxx - `src/generators/`
+
+### Trackers
+- @Xflofoxx - `src/trackers/`
+
+### PM² Integration
+- @Xflofoxx - `src/pm2/`
+
+### Documentation
+- @Xflofoxx - `docs/`, `README.md`, `CONTRIBUTING.md`
+
+### CI/CD
+- @Xflofoxx - `.github/workflows/`
+
+### Examples
+- @Xflofoxx - `examples/`
+
+## Review Process
+
+1. At least one approval required from a code owner
+2. All CI checks must pass
+3. No unresolved comments
+
+## Contact
+
+For questions about code ownership, contact @Xflofoxx.
