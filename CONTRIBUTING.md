@@ -1,5 +1,11 @@
 # Contributing to LumiSDD
 
+<!--
+  Author: Xflofoxx
+  Date: 2026-03-01
+  License: MIT
+-->
+
 Thank you for your interest in contributing to LumiSDD!
 
 ## Getting Started

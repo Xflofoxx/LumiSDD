@@ -1,5 +1,11 @@
 # Security Policy
 
+<!--
+  Author: Xflofoxx
+  Date: 2026-03-01
+  License: MIT
+-->
+
 ## Supported Versions
 
 We currently support the following versions of LumiSDD:
