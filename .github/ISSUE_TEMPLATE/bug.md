@@ -4,7 +4,6 @@ about: Create a report to help us improve
 title: '[BUG] '
 labels: bug
 assignees: ''
-
 ---
 
 ## Description
@@ -27,9 +26,9 @@ A clear and concise description of what actually happened.
 
 ## Environment
 
-- OS: 
-- Node version: 
-- LumiSDD version: 
+- OS:
+- Node version:
+- LumiSDD version:
 
 ## Possible Solution
 
@@ -37,7 +36,22 @@ Optional: suggest a fix or reason for the bug
 
 ## Related Requirements
 
-Link to related REQ-XXX if applicable
+| Field | Value |
+|-------|-------|
+| Req ID | <!-- REQ-XXX if related to a requirement --> |
+| Issue Link | <!-- Related GitHub issue --> |
+
+## PM² Information
+
+| Field | Value |
+|-------|-------|
+| PM² Phase | <!-- Initiating, Planning, Executing, Closing --> |
+| Work Package | <!-- Related work package ID (WP-XXX) --> |
+
+## Acceptance Criteria
+
+- [ ] Criterion 1
+- [ ] Criterion 2
 
 ## Additional Context
 

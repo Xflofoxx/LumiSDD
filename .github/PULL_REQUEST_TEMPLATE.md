@@ -11,18 +11,18 @@
 
 ## Related Issue
 
-<!-- Link to the issue this PR addresses (e.g., Fixes #123) -->
+| Field | Value |
+|-------|-------|
+| Issue | <!-- Fixes #123 --> |
+| Req ID | <!-- REQ-XXX if related --> |
 
-## Related Requirements
+## PM² Information
 
-<!-- Link to related REQ-XXX -->
-
-## PM² Phase
-
-- [ ] Initiating
-- [ ] Planning
-- [ ] Executing
-- [ ] Closing
+| Field | Value |
+|-------|-------|
+| PM² Phase | <!-- Initiating, Planning, Executing, Closing --> |
+| Work Package | <!-- WP-XXX if applicable --> |
+| Deliverable | <!-- DEL-XXX if applicable --> |
 
 ## How to Test
 
