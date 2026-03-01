@@ -167,7 +167,40 @@ This project follows the **PM² Project Management Methodology** developed by th
 
 ## Examples
 
-- [Hello Spec](examples/hello-spec/) - Basic specification example
+LumiSDD includes practical examples to help you get started:
+
+| Example | Description | Complexity |
+|---------|-------------|-------------|
+| [Hello Spec](examples/hello-spec/) | Basic specification and code generation | Beginner ⭐ |
+| [User CRUD](examples/user-crud/) | Complete REST API specification | Intermediate ⭐⭐ |
+| [E2E Workflow](examples/e2e-hello/) | Full SDD workflow demonstration | Advanced ⭐⭐⭐ |
+
+**Quick Start with Examples:**
+```bash
+# Clone the repository
+git clone https://github.com/Xflofoxx/LumiSDD.git
+cd LumiSDD
+
+# Install dependencies
+npm install
+
+# Build
+npm run build
+
+# Run the E2E example (recommended for first-time users)
+npm run example:e2e
+```
+
+For a complete overview of all examples, see [examples/README.md](examples/README.md).
+
+## Free Tier Compatible
+
+This project is designed to work within free tier limits:
+
+- **CI/CD**: Optimized GitHub Actions workflow (~10 min/job)
+- **No external paid services**: Uses local coverage reporting
+- **Open source dependencies**: All packages are MIT/Apache licensed
+- **Self-hosted runners**: Can run locally with Docker if needed
 
 ## Development
 
