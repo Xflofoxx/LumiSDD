@@ -7,11 +7,11 @@ We currently support the following versions of LumiSDD:
 | Version | Supported          |
 | ------- | ------------------ |
 | 1.0.x   | :white_check_mark: |
-| < 1.0   | :x:               |
+| < 1.0   | :x:                |
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability within LumiSDD, please send an email to security@xflofoxx.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within LumiSDD, please open an issue to github with tag "security". All security vulnerabilities will be promptly addressed.
 
 Please include the following information:
 
